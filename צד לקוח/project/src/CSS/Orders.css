@@ -1,0 +1,225 @@
+/* Orders.css - Modern Black/White/Red Theme, RTL */
+.orders-container {
+  direction: rtl;
+  text-align: right;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(120deg, #f7f7f7, #ffffff);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.orders-container h2 {
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Orders Grid */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.order-card {
+  width: 75%;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: cardFadeUp 0.8s ease forwards;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes cardFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.order-header h3 {
+  margin: 0 0 8px 0;
+  color: #d10000;
+  font-size: 1.3rem;
+}
+
+.order-date {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.order-info p {
+  margin: 6px 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.order-info strong {
+  color: #d10000;
+  margin-left: 6px;
+}
+
+.order-status {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.status-badge {
+  background: #d10000;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.status-badge:hover {
+  background: #ff2a2a;
+}
+
+/* Load More Button */
+.load-more-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.load-more-btn {
+  background: #d10000;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.load-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(209, 0, 0, 0.4);
+  background: #ff2a2a;
+}
+
+/* Order Details */
+.order-details {
+  width: 75%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  animation: cardFadeUp 0.8s ease forwards;
+}
+
+.back-btn {
+  background: #d10000;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.back-btn:hover {
+  background: #ff2a2a;
+  transform: translateY(-2px);
+}
+
+/* Customer Details */
+.customer-details {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.customer-details h4 {
+  margin-bottom: 15px;
+  color: #d10000;
+}
+
+.customer-details p {
+  margin: 6px 0;
+  color: #333;
+}
+
+/* Orders table - clean modern style */
+.order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff; /* רקע לבן */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.order-items-table tbody tr {
+    color:  #f2f2f2; 
+}
+.order-items-table th,
+.order-items-table td {
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 1px solid #eee; /* קו עדין */
+    color: #1a1a1a; /* טקסט שחור / כהה */
+    font-weight: 500;
+}
+
+.order-items-table th {
+    background: #f9f9f9; /* רקע כותרת בהיר */
+    font-weight: 600;
+    color: #d10000; /* אדום לנראות גבוהה */
+}
+
+.order-items-table tbody tr:hover {
+    background: #f2f2f2; /* שינוי עדין בזמן hover */
+}
+
+.order-items-table tfoot {
+    background: #f9f9f9;
+    font-weight: 600;
+    color: #f9f9f9;
+}
+
+.order-items-table tfoot td {
+    border-top: 2px solid #dee2e6;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orders-grid, .order-details {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-grid, .order-details {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .order-items-table th, .order-items-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}

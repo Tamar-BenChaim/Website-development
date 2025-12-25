@@ -1,0 +1,89 @@
+/* רקע כללי לעמוד */
+body {
+    background: linear-gradient(120deg, #000000, #111111);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* טופס */
+.auth-form {
+    width: 100%;
+    max-width: 380px;
+    margin: 80px auto;
+    padding: 35px 30px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: fadeUp 0.7s ease;
+}
+
+/* כותרת */
+.auth-form h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+/* אינפוטים */
+.auth-form input {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1.5px solid #ccc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* focus ברור וקריא */
+.auth-form input:focus {
+    outline: none;
+    border-color: #d10000;
+    box-shadow: 0 0 0 3px rgba(209,0,0,0.15);
+}
+
+/* כפתור */
+.auth-form button {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #d10000, #ff2a2a);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* hover */
+.auth-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(209,0,0,0.4);
+}
+
+/* לחיצה */
+.auth-form button:active {
+    transform: scale(0.98);
+}
+
+/* אנימציה */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* רספונסיביות */
+@media (max-width: 480px) {
+    .auth-form {
+        margin: 40px 15px;
+        padding: 30px 20px;
+    }
+}

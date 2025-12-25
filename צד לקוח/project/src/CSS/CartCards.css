@@ -1,0 +1,36 @@
+body{
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.cart-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 15px 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.cart-card .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.cart-card .actions button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(135deg, #d10000, #ff2a2a);
+    color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cart-card .actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(209,0,0,0.4);
+}

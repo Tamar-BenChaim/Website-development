@@ -1,0 +1,186 @@
+/* Statistics.css - Modern Black/White/Red Theme, RTL */
+.statistics-container {
+  direction: rtl;
+  text-align: right;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(120deg, #f7f7f7, #ffffff);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.statistics-container h2 {
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Grid */
+.statistics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  justify-items: center;
+}
+
+.statistics-section {
+  width: 75%;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 25px;
+  border: 1px solid #e1e5e9;
+  animation: cardFadeUp 0.8s ease forwards;
+}
+
+.statistics-section h3 {
+  color: #d10000;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #d10000;
+  padding-bottom: 10px;
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.stats-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.rank {
+  background: #d10000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 15px;
+  flex-shrink: 0;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h4 {
+  margin: 0 0 5px 0;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+}
+
+.category, .stats {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 2px 0;
+  font-weight: 500;
+}
+
+.item-price, .user-contact {
+  text-align: left;
+  color: #d10000;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.user-contact {
+  color: #7f8c8d;
+  font-weight: normal;
+  font-size: 0.85rem;
+  max-width: 200px;
+}
+
+.user-contact small {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-data {
+  text-align: center;
+  color: #7f8c8d;
+  padding: 30px;
+  font-style: italic;
+}
+
+@keyframes cardFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .statistics-section {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .stats-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .rank {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .item-price, .user-contact {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .stats-item {
+    padding: 12px;
+  }
+
+  .item-details h4 {
+    font-size: 1rem;
+  }
+}
