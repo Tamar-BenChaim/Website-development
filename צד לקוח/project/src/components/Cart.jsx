@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../CSS/CartCards.css';
+import '../CSS/OrderFormModal.css';
 
 const Cart = () => {
 
@@ -52,18 +53,16 @@ const Cart = () => {
             setItems(items);
         }
     }   
-    const DesCnt =(id)=>{
-        
+    const DesCnt = (id) => {
         const items = JSON.parse(localStorage.getItem("cart"));
         const item = items.find(item => item.product.id === id);
-        if (item && item.count > 1){
+        if (item && item.count > 1) {
             item.count -= 1;
-            localStorage.setItem("cart", JSON.stringify(items))
-            setItems(items);
-        }
-        if (item && item.count == 1){
+            localStorage.setItem("cart", JSON.stringify(items));
+            setItems([...items]);
+        } else if (item && item.count === 1) {
             const newItems = items.filter(item => item.product.id !== id);
-            localStorage.setItem("cart", JSON.stringify(newItems))
+            localStorage.setItem("cart", JSON.stringify(newItems));
             setItems(newItems);
         }
     }
@@ -189,9 +188,13 @@ const Cart = () => {
             </div>
         )}
         {showOrderForm && (
-            <div className="modal-backdrop">
-                <div className="modal order-form">
-                    <h3>פרטי ההזמנה</h3>
+            <div className="order-form-modal">
+                <div className="order-form-container">
+                    <div className="order-form-header">
+                        <h3>פרטי ההזמנה</h3>
+                    </div>
+                    
+                    <div className="order-form-content">
                     
                     <div className="user-details">
                         <h4>פרטי הלקוח</h4>
@@ -256,6 +259,7 @@ const Cart = () => {
                         <button onClick={() => setShowOrderForm(false)} className="cancel-order">
                             ביטול
                         </button>
+                    </div>
                     </div>
                 </div>
             </div>

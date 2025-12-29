@@ -1,121 +1,276 @@
-/* Statistics.css - Modern Black/White/Red Theme, RTL */
+/* עיצוב מודרני לעמוד הסטטיסטיקות - מרוכז לחלוטין */
+.statistics-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+  text-align: center;
+}
+
 .statistics-container {
   direction: rtl;
-  text-align: right;
-  padding: 20px;
+  text-align: center;
   max-width: 1200px;
   margin: 0 auto;
-  background: linear-gradient(120deg, #f7f7f7, #ffffff);
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.statistics-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: slideInUp 0.6s ease-out;
 }
 
 .statistics-container h2 {
-  color: #1a1a1a;
-  margin-bottom: 30px;
-  font-size: 2rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
   text-align: center;
-  letter-spacing: 1px;
+}
+
+.statistics-subtitle {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .loading {
   text-align: center;
-  padding: 50px;
-  font-size: 1.2rem;
-  color: #666;
+  padding: 80px 20px;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  animation: pulse 2s infinite;
+  margin: 0 auto;
+  max-width: 400px;
 }
 
-/* Grid */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* רשת הסטטיסטיקות */
 .statistics-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
   justify-items: center;
 }
 
 .statistics-section {
-  width: 75%;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 25px;
-  border: 1px solid #e1e5e9;
-  animation: cardFadeUp 0.8s ease forwards;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 35px;
+  animation: cardSlideIn 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.statistics-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .statistics-section h3 {
-  color: #d10000;
-  margin-bottom: 20px;
-  font-size: 1.4rem;
-  border-bottom: 2px solid #d10000;
-  padding-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  text-align: center;
+  position: relative;
 }
 
+.statistics-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* רשימת סטטיסטיקות */
 .stats-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .stats-item {
   display: flex;
   align-items: center;
-  background: #f9f9f9;
-  border-radius: 12px;
-  padding: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #eee;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 18px;
+  padding: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stats-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.stats-item:hover::before {
+  transform: scaleY(1);
 }
 
 .stats-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.2);
 }
 
+/* דירוג פריט */
 .rank {
-  background: #d10000;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-left: 15px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0 auto 10px auto;
   flex-shrink: 0;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.rank::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.stats-item:hover .rank::before {
+  left: 100%;
 }
 
 .item-details {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
 }
 
 .item-details h4 {
-  margin: 0 0 5px 0;
-  color: #1a1a1a;
-  font-size: 1.1rem;
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
 }
 
-.category, .stats {
-  color: #555;
-  font-size: 0.9rem;
-  margin: 2px 0;
+.category {
+  color: #2c3e50;
+  font-size: 0.95rem;
   font-weight: 500;
+  background: rgba(44, 62, 80, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  width: fit-content;
+  margin: 0 auto;
 }
 
-.item-price, .user-contact {
-  text-align: left;
-  color: #d10000;
-  font-weight: bold;
-  font-size: 1.05rem;
+.stats {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.item-price {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 5px;
 }
 
 .user-contact {
-  color: #7f8c8d;
-  font-weight: normal;
-  font-size: 0.85rem;
-  max-width: 200px;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 0.9rem;
+  max-width: 250px;
+  background: rgba(44, 62, 80, 0.1);
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin: 5px auto 0 auto;
 }
 
 .user-contact small {
@@ -123,64 +278,205 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 3px;
+  font-size: 0.8rem;
+  color: #2c3e50;
+  text-align: center;
 }
 
+/* אין נתונים */
 .no-data {
   text-align: center;
-  color: #7f8c8d;
-  padding: 30px;
+  color: #2c3e50;
+  padding: 60px 30px;
   font-style: italic;
+  font-size: 1.1rem;
+  background: rgba(44, 62, 80, 0.05);
+  border-radius: 15px;
+  border: 2px dashed rgba(44, 62, 80, 0.2);
 }
 
-@keyframes cardFadeUp {
-  0% {
+/* אנימציות */
+@keyframes fadeInUp {
+  from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 1024px) {
   .statistics-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 30px;
   }
+}
 
+@media (max-width: 768px) {
   .statistics-section {
-    width: 90%;
-    padding: 20px;
+    padding: 25px;
+    max-width: 100%;
   }
-
+  
+  .statistics-container h2 {
+    font-size: 2.2rem;
+  }
+  
   .stats-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
+    padding: 25px;
   }
-
-  .rank {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-
-  .item-price, .user-contact {
-    text-align: center;
+  
+  .category {
+    align-self: center;
   }
 }
 
 @media (max-width: 480px) {
+  .statistics-page {
+    padding: 20px 15px;
+  }
+  
+  .statistics-section {
+    padding: 20px;
+  }
+  
+  .statistics-container h2 {
+    font-size: 2rem;
+  }
+  
   .statistics-section h3 {
+    font-size: 1.4rem;
+  }
+  
+  .stats-item {
+    padding: 20px;
+  }
+  
+  .item-details h4 {
+    font-size: 1.1rem;
+  }
+  
+  .rank {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .item-price {
     font-size: 1.2rem;
   }
+}
 
-  .stats-item {
-    padding: 12px;
+/* אנימציות */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 1024px) {
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics-section {
+    padding: 25px;
+  }
+  
+  .statistics-container h2 {
+    font-size: 2.2rem;
+  }
+  
+  .stats-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 25px;
+  }
+  
+  .rank {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  
+  .item-price,
+  .user-contact {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .category {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics-page {
+    padding: 20px 15px;
+  }
+  
+  .statistics-section {
+    padding: 20px;
+  }
+  
+  .statistics-container h2 {
+    font-size: 2rem;
+  }
+  
+  .statistics-section h3 {
+    font-size: 1.4rem;
+  }
+  
+  .stats-item {
+    padding: 20px;
+  }
+  
   .item-details h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .rank {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .item-price {
+    font-size: 1.2rem;
   }
 }

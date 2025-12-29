@@ -1,89 +1,314 @@
+/* עיצוב מודרני לעמודי התחברות והרשמה */
+
 /* רקע כללי לעמוד */
-body {
-    background: linear-gradient(120deg, #000000, #111111);
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* טופס */
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* טופס התחברות/הרשמה */
 .auth-form {
-    width: 100%;
-    max-width: 380px;
-    margin: 80px auto;
-    padding: 35px 30px;
-    background: #ffffff;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    animation: fadeUp 0.7s ease;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 40px 35px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: authSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.auth-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  border-radius: 25px 25px 0 0;
+}
+
+@keyframes authSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* כותרת */
 .auth-form h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #000;
-    letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  position: relative;
 }
 
-/* אינפוטים */
+.auth-form h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* קבוצת שדות */
+.form-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+/* שדות קלט */
 .auth-form input {
-    padding: 14px;
-    border-radius: 10px;
-    border: 1.5px solid #ccc;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 15px;
+  border: 2px solid #e9ecef;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
 }
 
-/* focus ברור וקריא */
 .auth-form input:focus {
-    outline: none;
-    border-color: #d10000;
-    box-shadow: 0 0 0 3px rgba(209,0,0,0.15);
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 1);
 }
 
-/* כפתור */
+.auth-form input:focus + label {
+  color: #667eea;
+}
+
+/* כפתור שליחה - גדול ומשמעותי */
 .auth-form button {
-    margin-top: 10px;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    background: linear-gradient(135deg, #d10000, #ff2a2a);
-    color: white;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 25px;
+  padding: 20px 50px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(17, 153, 142, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 250px;
+  min-height: 60px;
 }
 
-/* hover */
+.auth-form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.auth-form button:hover::before {
+  left: 100%;
+}
+
 .auth-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(209,0,0,0.4);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(17, 153, 142, 0.4);
+  background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
 }
 
-/* לחיצה */
 .auth-form button:active {
-    transform: scale(0.98);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(17, 153, 142, 0.3);
 }
 
-/* אנימציה */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* קישורים */
+.auth-form a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.auth-form a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.auth-form a:hover::after {
+  width: 100%;
+}
+
+.auth-form a:hover {
+  color: #764ba2;
+}
+
+/* טקסט מרכזי */
+.auth-form p {
+  text-align: center;
+  color: #7f8c8d;
+  margin: 15px 0 5px 0;
+  font-size: 0.95rem;
+}
+
+/* הודעות שגיאה */
+.error-message {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  animation: shake 0.5s ease-in-out;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* הודעות הצלחה */
+.success-message {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  animation: slideInUp 0.5s ease;
+  box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* רספונסיביות */
+@media (max-width: 768px) {
+  .auth-form {
+    max-width: 380px;
+    padding: 35px 30px;
+    margin: 20px;
+  }
+  
+  .auth-form h1 {
+    font-size: 1.8rem;
+  }
+  
+  .auth-form input {
+    padding: 14px 18px;
+    font-size: 0.95rem;
+  }
+  
+  .auth-form button {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
-    .auth-form {
-        margin: 40px 15px;
-        padding: 30px 20px;
-    }
+  .auth-container {
+    padding: 15px;
+  }
+  
+  .auth-form {
+    max-width: 100%;
+    padding: 30px 25px;
+    margin: 10px;
+  }
+  
+  .auth-form h1 {
+    font-size: 1.6rem;
+  }
+  
+  .auth-form input {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .auth-form button {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
 }

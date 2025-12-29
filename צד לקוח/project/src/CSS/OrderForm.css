@@ -1,0 +1,355 @@
+/* עיצוב מודרני לעמוד פרטי ההזמנה */
+.order-form-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-form-container {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  animation: orderFormSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  text-align: center;
+}
+
+.order-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+@keyframes orderFormSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.order-form-header {
+  padding: 35px 35px 25px 35px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+}
+
+.order-form-container h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.order-form-content {
+  padding: 25px 35px 35px 35px;
+}
+
+/* פרטי המשתמש */
+.user-details {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  text-align: center;
+}
+
+.user-details h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.user-details p {
+  margin: 8px 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* שדה כתובת */
+.address-input {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.address-input label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.address-input input {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 20px;
+  border: 2px solid #e9ecef;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2c3e50;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+.address-input input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* פריטי ההזמנה */
+.order-items {
+  margin-bottom: 30px;
+}
+
+.order-items h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* טבלת ההזמנה */
+.order-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.order-table th,
+.order-table td {
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+}
+
+.order-table th {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.order-table tbody tr {
+  color: #2c3e50;
+  transition: background-color 0.3s ease;
+}
+
+.order-table tbody tr:hover {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.order-table tbody tr:nth-child(even) {
+  background: rgba(248, 249, 250, 0.5);
+}
+
+.order-table tfoot {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  font-weight: 700;
+}
+
+.order-table tfoot td {
+  border-top: 2px solid rgba(102, 126, 234, 0.2);
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* כפתורי פעולה */
+.order-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.submit-order {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  padding: 18px 45px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(17, 153, 142, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.submit-order:hover::before {
+  left: 100%;
+}
+
+.submit-order:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(17, 153, 142, 0.4);
+  background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+}
+
+.cancel-order {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  padding: 16px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-width: 150px;
+}
+
+.cancel-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cancel-order:hover::before {
+  left: 100%;
+}
+
+.cancel-order:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(135deg, #ee5a52 0%, #ff6b6b 100%);
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .order-form-container {
+    max-width: 90%;
+  }
+  
+  .order-form-header {
+    padding: 30px 25px 20px 25px;
+  }
+  
+  .order-form-content {
+    padding: 20px 25px 30px 25px;
+  }
+  
+  .order-form-container h3 {
+    font-size: 1.8rem;
+  }
+  
+  .order-table th,
+  .order-table td {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .order-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submit-order,
+  .cancel-order {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-form-page {
+    padding: 20px 15px;
+  }
+  
+  .order-form-container h3 {
+    font-size: 1.6rem;
+  }
+  
+  .user-details {
+    padding: 20px;
+  }
+  
+  .order-table th,
+  .order-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .submit-order {
+    padding: 16px 35px;
+    font-size: 1.2rem;
+  }
+  
+  .cancel-order {
+    padding: 14px 30px;
+    font-size: 1rem;
+  }
+}

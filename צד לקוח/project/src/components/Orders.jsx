@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../CSS/Orders.css';
+import '../CSS/OrderFormModal.css';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);

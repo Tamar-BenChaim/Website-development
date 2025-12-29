@@ -395,7 +395,7 @@
   font-size: 1.1rem;
 }
 
-/* אנימציות */
+/* רספונסיביות */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -418,7 +418,6 @@
   }
 }
 
-/* רספונסיביות */
 @media (max-width: 768px) {
   .orders-grid {
     grid-template-columns: 1fr;

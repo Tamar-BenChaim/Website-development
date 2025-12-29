@@ -1,0 +1,559 @@
+/* עיצוב מרשים לטופס ההזמנה */
+.order-form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: modalFadeIn 0.4s ease-out;
+  padding: 20px;
+  overflow: hidden;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(15px);
+  }
+}
+
+.order-form-container {
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 30px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  animation: orderFormSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  text-align: center;
+}
+
+.order-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #11998e 100%);
+  animation: gradientMove 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes orderFormSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* כותרת הטופס */
+.order-form-header {
+  padding: 40px 40px 25px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  position: relative;
+}
+
+.order-form-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.order-form-container h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+  letter-spacing: -0.8px;
+  text-align: center;
+  animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.order-form-subtitle {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* תוכן הטופס */
+.order-form-content {
+  padding: 30px 40px 40px 40px;
+  overflow-y: auto;
+  max-height: calc(90vh - 200px);
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}
+
+/* פרטי המשתמש */
+.user-details {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out 0.1s both;
+}
+
+.user-details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.user-details h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.user-details h4::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.user-details p {
+  margin: 12px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* שדה כתובת */
+.address-input {
+  margin-bottom: 30px;
+  text-align: center;
+  animation: slideInUp 0.6s ease-out 0.2s both;
+}
+
+.address-input label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.address-input input {
+  width: 100%;
+  max-width: 500px;
+  padding: 18px 25px;
+  border: 3px solid #e9ecef;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2c3e50;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.address-input input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.15);
+  transform: translateY(-3px) scale(1.01);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* פריטי ההזמנה */
+.order-items {
+  margin-bottom: 35px;
+  animation: slideInUp 0.6s ease-out 0.3s both;
+}
+
+.order-items h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.order-items h4::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* טבלת ההזמנה */
+.order-table {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  direction: rtl;
+}
+
+.order-table th,
+.order-table td {
+  padding: 18px 25px;
+  text-align: center;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.order-table th {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.order-table tbody tr {
+  color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+.order-table tbody tr:hover {
+  background: rgba(102, 126, 234, 0.08);
+  transform: scale(1.01);
+}
+
+.order-table tbody tr:nth-child(even) {
+  background: rgba(248, 249, 250, 0.7);
+}
+
+.order-table tfoot {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  font-weight: 700;
+}
+
+.order-table tfoot td {
+  border-top: 3px solid rgba(102, 126, 234, 0.3);
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 20px 25px;
+}
+
+/* כפתורי פעולה */
+.order-actions {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  animation: slideInUp 0.6s ease-out 0.4s both;
+}
+
+.submit-order {
+  background: linear-gradient(135deg, #ff1744 0%, #e91e63 100%);
+  color: white;
+  padding: 25px 60px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 50px rgba(255, 23, 68, 0.5);
+  position: relative;
+  overflow: hidden;
+  min-width: 320px;
+  min-height: 80px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.submit-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.submit-order:hover::before {
+  left: 100%;
+}
+
+.submit-order:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 30px 70px rgba(255, 23, 68, 0.7);
+  background: linear-gradient(135deg, #e91e63 0%, #ff1744 100%);
+  animation: buttonGlow 0.8s ease-in-out;
+}
+
+@keyframes buttonGlow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.cancel-order {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  padding: 18px 45px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  min-height: 60px;
+}
+
+.cancel-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cancel-order:hover::before {
+  left: 100%;
+}
+
+.cancel-order:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+  background: linear-gradient(135deg, #ee5a52 0%, #ff6b6b 100%);
+}
+
+.cancel-order:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.submit-order:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* אנימציות כניסה */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* גלילה מותאמת אישית */
+.order-form-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.order-form-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.order-form-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+.order-form-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 768px) {
+  .order-form-container {
+    max-width: 95%;
+    margin: 10px;
+    border-radius: 20px;
+  }
+  
+  .order-form-header,
+  .order-form-content {
+    padding: 20px;
+  }
+  
+  .order-form-container h3 {
+    font-size: 2rem;
+  }
+  
+  .user-details {
+    padding: 20px;
+  }
+  
+  .order-table {
+    font-size: 0.9rem;
+  }
+  
+  .order-table th,
+  .order-table td {
+    padding: 12px 8px;
+  }
+  
+  .order-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .submit-order {
+    min-width: 280px;
+    padding: 20px 45px;
+    font-size: 1.4rem;
+  }
+  
+  .cancel-order {
+    min-width: 180px;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-form-modal {
+    padding: 15px;
+  }
+  
+  .order-form-container {
+    max-width: 98%;
+    margin: 5px;
+  }
+  
+  .order-form-container h3 {
+    font-size: 1.8rem;
+  }
+  
+  .user-details {
+    padding: 25px 20px;
+  }
+  
+  .address-input input {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+  
+  .order-table {
+    font-size: 0.8rem;
+  }
+  
+  .order-table th,
+  .order-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .submit-order {
+    min-width: 250px;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    min-height: 70px;
+  }
+  
+  .cancel-order {
+    min-width: 160px;
+    padding: 14px 30px;
+    font-size: 1rem;
+    min-height: 55px;
+  }
+}
